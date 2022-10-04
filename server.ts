@@ -1,10 +1,14 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { programs, residents } from "./data.ts";
 
 const router = new Router();
-router.get("/api/residents/:id", (ctx) => {
-  ctx.response.body = {
-    test: ctx.params.id
-  };
+
+router.get("/api/residents", (ctx) => {
+  ctx.response.body = residents;
+});
+
+router.get("/api/programs", (ctx) => {
+  ctx.response.body = programs;
 });
 
 const app = new Application();
