@@ -2,7 +2,7 @@ import {
   Application,
   httpErrors,
   Router,
-} from "https://deno.land/x/oak/mod.ts";
+} from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { programs, residents } from "./data.ts";
 
 const router = new Router();
