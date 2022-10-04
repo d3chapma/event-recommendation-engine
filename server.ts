@@ -3,7 +3,8 @@ import {
   httpErrors,
   Router,
 } from "https://deno.land/x/oak@v11.1.0/mod.ts";
-import { programs, residents } from "./data.ts";
+import { findResidentById, residents } from "./models/Resident.ts";
+import { findProgramById, programs } from "./models/Program.ts";
 
 const router = new Router();
 
@@ -14,7 +15,7 @@ router.get("/api/residents", (ctx) => {
 router.get("/api/residents/:id", (ctx) => {
   const id = ctx.params.id;
 
-  const resident = residents.find((resident) => resident.userId === id);
+  const resident = findResidentById(id);
 
   if (resident) {
     ctx.response.body = resident;
@@ -30,7 +31,7 @@ router.get("/api/programs", (ctx) => {
 router.get("/api/programs/:id", (ctx) => {
   const id = ctx.params.id;
 
-  const program = programs.find((program) => program.id === id);
+  const program = findProgramById(id);
 
   if (program) {
     ctx.response.body = program;
