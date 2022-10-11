@@ -9,6 +9,7 @@ import {
   programs,
   programsAttendedByResidentId,
 } from "./models/Program.ts";
+import { recommendedProgramsForResident } from "./models/Recommendation.ts";
 
 const router = new Router();
 
@@ -32,6 +33,12 @@ router.get("/api/residents/:id/attended-programs", (ctx) => {
   const id = ctx.params.id;
 
   ctx.response.body = programsAttendedByResidentId(id);
+});
+
+router.get("/api/residents/:id/recommended-programs", (ctx) => {
+  const id = ctx.params.id;
+
+  ctx.response.body = recommendedProgramsForResident(id);
 });
 
 router.get("/api/programs", (ctx) => {
