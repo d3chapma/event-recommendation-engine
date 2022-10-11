@@ -13,11 +13,32 @@ If that doesn't work, you can check out the
 
 Point postman or browser to:
 
-For residents:
-  "http://localhost:8080/api/residents"
+## http://localhost:8080/api/residents
 
-For programs:
-  "http://localhost:8080/api/programs"
+List of all residents
 
-For recommendations:
-  "http://localhost:8080/api/residents/<IdOfResident>/program-recommendations"
+## http://localhost:8080/api/residents/:id
+
+Details for specific resident
+
+## http://localhost:8080/api/residents/:id/programs/attended
+
+List of programs attended by specific resident
+
+## http://localhost:8080/api/residents/:id/programs/recommended
+
+List of three programs recommended for specific resident
+
+The three programs:
+
+1. attended in the past and matches the resident's most popular dimension
+2. attended in the past and matches the resident's second most popular dimension
+3. not attended in the past and matches the resident's most popular dimension
+
+## http://localhost:8080/api/programs
+
+List of all programs
+
+## http://localhost:8080/api/programs/:id
+
+Details for specific program

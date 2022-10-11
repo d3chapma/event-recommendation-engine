@@ -29,13 +29,13 @@ router.get("/api/residents/:id", (ctx) => {
   }
 });
 
-router.get("/api/residents/:id/attended-programs", (ctx) => {
+router.get("/api/residents/:id/programs/attended", (ctx) => {
   const id = ctx.params.id;
 
   ctx.response.body = programsAttendedByResidentId(id);
 });
 
-router.get("/api/residents/:id/recommended-programs", (ctx) => {
+router.get("/api/residents/:id/programs/recommended", (ctx) => {
   const id = ctx.params.id;
 
   ctx.response.body = recommendedProgramsForResident(id);
