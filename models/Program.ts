@@ -24,7 +24,7 @@ function extractValues(val: string | null) {
   return val?.split(",") || [];
 }
 
-export function programsByDimensionAndLevelOfCare(
+export function programByDimensionAndLevelOfCare(
   dimension: string,
   levelOfCare: string | null,
   residentId: string,

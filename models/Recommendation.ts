@@ -1,6 +1,6 @@
 import {
+  programByDimensionAndLevelOfCare,
   programsAttendedByResidentId,
-  programsByDimensionAndLevelOfCare,
 } from "./Program.ts";
 import { findResidentById } from "./Resident.ts";
 
@@ -42,19 +42,19 @@ export function recommendedProgramsForResident(id: string) {
   const levelOfCare = resident.levelOfCare;
 
   return [
-    programsByDimensionAndLevelOfCare(
+    programByDimensionAndLevelOfCare(
       popularDimensions[0],
       levelOfCare,
       id,
       true,
     ),
-    programsByDimensionAndLevelOfCare(
+    programByDimensionAndLevelOfCare(
       popularDimensions[1],
       levelOfCare,
       id,
       true,
     ),
-    programsByDimensionAndLevelOfCare(
+    programByDimensionAndLevelOfCare(
       popularDimensions[0],
       levelOfCare,
       id,
