@@ -4,7 +4,11 @@ import {
   Router,
 } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { findResidentById, residents } from "./models/Resident.ts";
-import { findProgramById, programs } from "./models/Program.ts";
+import {
+  findProgramById,
+  programs,
+  programsAttendedByResidentId,
+} from "./models/Program.ts";
 
 const router = new Router();
 
@@ -22,6 +26,12 @@ router.get("/api/residents/:id", (ctx) => {
   } else {
     throw new httpErrors.NotFound(`Resident not found with userId: ${id}`);
   }
+});
+
+router.get("/api/residents/:id/attended-programs", (ctx) => {
+  const id = ctx.params.id;
+
+  ctx.response.body = programsAttendedByResidentId(id);
 });
 
 router.get("/api/programs", (ctx) => {
